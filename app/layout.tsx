@@ -1,22 +1,21 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { LanguageProvider } from "@/contexts/LanguageContext";
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { LanguageProvider } from '@/contexts/LanguageContext';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: "Health Challenge",
-  description: "Health Challenge - Desafio de Saúde",
+export const metadata = {
+  title: 'Health Challenge',
+  description: 'Sua saúde em primeiro lugar',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
+    <html lang="pt">
       <body className={inter.className}>
         <LanguageProvider>
           {children}

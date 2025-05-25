@@ -50,7 +50,7 @@ const Footer = () => {
           <h3 className="font-semibold mb-2">{t('catalogDownloads')}</h3>
           <ul className="space-y-1">
             <li><a href="#" className="hover:underline">{t('generalCatalog')}</a></li>
-            <li><a href="#" className="hover:underline">{t('orthopedicLine')}</a></li>
+            <li><a href="/orthopedic" className="hover:underline">{t('orthopedicLine')}</a></li>
             <li><a href="#" className="hover:underline">{t('sportsLine')}</a></li>
             <li><a href="#" className="hover:underline">{t('specialCaresLine')}</a></li>
             <li><a href="#" className="hover:underline">{t('footCareCatalog')}</a></li>

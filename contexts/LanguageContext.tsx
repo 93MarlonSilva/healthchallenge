@@ -1,6 +1,9 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
+import '@/app/i18n';
 
 type Language = 'pt' | 'en' | 'es';
 
@@ -8,6 +11,7 @@ interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
+  currentLanguage: Language;
 }
 
 const translations = {
@@ -84,15 +88,33 @@ const translations = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('pt');
+export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const { t, i18n } = useTranslation();
+  const [currentLanguage, setCurrentLanguage] = useState<Language>('pt');
 
-  const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations[typeof language]] || key;
+  const setLanguage = (lang: Language) => {
+    setCurrentLanguage(lang);
+    i18n.changeLanguage(lang);
+    // Remover o locale atual da URL e adicionar o novo
+    const pathWithoutLocale = pathname?.split('/').slice(2).join('/') || '';
+    const newPath = `/${lang}${pathWithoutLocale ? `/${pathWithoutLocale}` : ''}`;
+    router.push(newPath);
   };
 
+  useEffect(() => {
+    if (pathname) {
+      const locale = pathname.split('/')[1];
+      if (locale && ['pt', 'en', 'es'].includes(locale)) {
+        setCurrentLanguage(locale as Language);
+        i18n.changeLanguage(locale);
+      }
+    }
+  }, [pathname, i18n]);
+
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language: currentLanguage, setLanguage, t, currentLanguage }}>
       {children}
     </LanguageContext.Provider>
   );

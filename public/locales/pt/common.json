@@ -1,0 +1,30 @@
+{
+  "welcome": "Bem-vindo",
+  "language": "Idioma",
+  "navigation": {
+    "home": "Início",
+    "about": "Sobre",
+    "contact": "Contato"
+  },
+  "products": "Produtos",
+  "about": "Sobre",
+  "contact": "Contato",
+  "catalogs": "Catálogos",
+  "search": "Buscar",
+  "contactUs": "Fale Conosco",
+  "selectCountry": "Selecionar País",
+  "institutional": "Institucional",
+  "aboutUs": "Sobre Nós",
+  "workWithUs": "Trabalhe Conosco",
+  "catalogDownloads": "Download de Catálogos",
+  "generalCatalog": "Catálogo Geral",
+  "orthopedicLine": "Linha Ortopédica",
+  "sportsLine": "Linha Esportiva",
+  "specialCaresLine": "Linha Cuidados Especiais",
+  "footCareCatalog": "Catálogo Cuidados com os Pés",
+  "accessibilityCatalog": "Catálogo Acessibilidade",
+  "contactAndQuestions": "Contato e Dúvidas",
+  "followUs": "Siga-nos",
+  "rightsReserved": "Todos os direitos reservados",
+  "homeDescription": "O HealthChallenge é uma aplicação dedicada à promoção da saúde e do bem-estar. Aqui você encontra informações, produtos e recursos para cuidar melhor do seu corpo e da sua qualidade de vida. Explore nossas soluções ortopédicas e descubra como podemos ajudar você a viver com mais conforto e saúde!"
+} 

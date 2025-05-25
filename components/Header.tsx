@@ -41,12 +41,13 @@ export default function Header() {
               height={40}
               className="object-contain"
               priority
+              sizes="120px"
             />
           </Link>
         </div>
         {/* Menu Desktop */}
         <nav className="flex gap-8 max-md:hidden items-center">
-          <Link href="#" className="text-[var(--color-semidark)] text-base font-normal hover:text-[var(--color-purple)] transition-colors">{t('products')}</Link>
+          <Link href="/orthopedic" className="text-[var(--color-semidark)] text-base font-normal hover:text-[var(--color-purple)] transition-colors">{t('products')}</Link>
           <Link href="#" className="text-[var(--color-semidark)] text-base font-normal hover:text-[var(--color-purple)] transition-colors">{t('about')}</Link>
           <Link href="#" className="text-[var(--color-semidark)] text-base font-normal hover:text-[var(--color-purple)] transition-colors">{t('contact')}</Link>
           <Link href="#" className="text-[var(--color-semidark)] text-base font-normal hover:text-[var(--color-purple)] transition-colors">{t('catalogs')}</Link>
@@ -132,7 +133,7 @@ export default function Header() {
                   <line x1="18" y1="6" x2="6" y2="18" stroke="#4C4D4C" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               </button>
-              <Link href="#" className="text-[var(--color-semidark)] text-lg font-medium hover:text-[var(--color-purple)] transition-colors" onClick={() => setMenuOpen(false)}>{t('products')}</Link>
+              <Link href="/orthopedic" className="text-[var(--color-semidark)] text-lg font-medium hover:text-[var(--color-purple)] transition-colors" onClick={() => setMenuOpen(false)}>{t('products')}</Link>
               <Link href="#" className="text-[var(--color-semidark)] text-lg font-medium hover:text-[var(--color-purple)] transition-colors" onClick={() => setMenuOpen(false)}>{t('about')}</Link>
               <Link href="#" className="text-[var(--color-semidark)] text-lg font-medium hover:text-[var(--color-purple)] transition-colors" onClick={() => setMenuOpen(false)}>{t('contact')}</Link>
               <Link href="#" className="text-[var(--color-semidark)] text-lg font-medium hover:text-[var(--color-purple)] transition-colors" onClick={() => setMenuOpen(false)}>{t('catalogs')}</Link>
