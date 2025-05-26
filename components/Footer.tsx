@@ -12,7 +12,7 @@ import { useCountry } from "@/contexts/CountryContext";
 const countries = [
   { code: 'BR', name: 'Brasil', flag: '🇧🇷', lang: 'pt' },
   { code: 'US', name: 'USA', flag: '🇺🇸', lang: 'en' },
-  { code: 'ES', name: 'España', flag: '🇪��', lang: 'es' }
+  { code: 'ES', name: 'España', flag: '🇪🇸', lang: 'es' }
 ];
 
 const Footer = () => {
@@ -56,7 +56,7 @@ const Footer = () => {
           <h3 className="font-semibold mb-2">{t('catalogDownloads')}</h3>
           <ul className="space-y-1">
             <li><a href="#" className="hover:underline">{t('generalCatalog')}</a></li>
-            <li><a href="/orthopedic" className="hover:underline">{t('orthopedicLine')}</a></li>
+            <li><Link href="/orthopedic" className="hover:underline">{t('orthopedicLine')}</Link></li>
             <li><a href="#" className="hover:underline">{t('sportsLine')}</a></li>
             <li><a href="#" className="hover:underline">{t('specialCaresLine')}</a></li>
             <li><a href="#" className="hover:underline">{t('footCareCatalog')}</a></li>

@@ -9,7 +9,6 @@ import { useParams } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { CountryProvider } from '@/contexts/CountryContext';
-import { useCountry } from '@/contexts/CountryContext';
 
 interface ProductDetails {
   code: string;
@@ -46,11 +45,10 @@ const productData: { [key: string]: ProductDetails } = {
 };
 
 export default function ProductDetailPage() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const params = useParams();
   const productCode = typeof params?.productCode === 'string' ? params.productCode : undefined;
   const [mounted, setMounted] = useState(false);
-  const { selectedCountry } = useCountry();
 
   useEffect(() => {
     setMounted(true);

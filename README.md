@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Health Challenge E-commerce
 
-## Getting Started
+## Sobre o Projeto
+Este é um projeto de e-commerce desenvolvido como um desafio técnico, utilizando tecnologias modernas e otimizadas para performance e escalabilidade.
 
-First, run the development server:
+## Tecnologias Utilizadas
 
+### Next.js
+- Escolhido como framework principal devido à sua capacidade nativa de SEO (Search Engine Optimization) que se enquadra nesse projeto de E-commerce
+- Renderização do lado do servidor (SSR) para melhor performance
+- Otimização automática de imagens
+- Roteamento dinâmico
+- API Routes integradas
+
+### Gerenciamento de Estado
+- Context API nativa do React
+- Escolhida por ser uma solução leve e adequada para o escopo do projeto
+- Facilita o compartilhamento de estado entre componentes
+- Reduz a complexidade do código
+
+### Internacionalização (i18n)
+- i18next para suporte a múltiplos idiomas
+- Facilita a expansão do e-commerce para diferentes mercados
+- Gerenciamento centralizado de traduções
+
+### Estilização
+- Tailwind CSS
+  - Framework utility-first que permite desenvolvimento rápido
+  - Performance otimizada através de purging automático de CSS não utilizado
+  - Responsividade nativa
+  - Customização flexível
+  - Redução significativa do tamanho final do CSS
+
+### Arquitetura
+- Componentes reutilizáveis
+- Custom Hooks para lógica compartilhada
+- Estrutura organizada e escalável
+
+### Dados e Imagens
+- Utilização de dados mockados localmente
+  - Inicialmente foi projetado uso do Firebase com Realtime Database para armazenamento de dados
+  - Imagens foram hospedadas no Firebase Storage
+  - API REST foi desenvolvida para consumo dos dados 
+  - Por questões de tempo e simplicidade, optou-se por utilizar dados locais
+  - Imagens e dados dos produtos estão armazenados localmente no projeto
+  - Esta abordagem permite desenvolvimento e testes mais rápidos
+  - Facilita a demonstração do projeto sem dependência de serviços externos
+
+## Como Executar o Projeto
+
+### Pré-requisitos
+- Node.js (versão 18 ou superior)
+- npm ou yarn
+
+### Instalação
+
+1. Clone o repositório:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [URL_DO_REPOSITÓRIO]
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instale as dependências:
+```bash
+npm install
+# ou
+yarn install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Execute o projeto em modo de desenvolvimento:
+```bash
+npm run dev
+# ou
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Acesse o projeto em `http://localhost:3000`
 
-## Learn More
+## Estrutura do Projeto
 
-To learn more about Next.js, take a look at the following resources:
+```
+├── components/     # Componentes reutilizáveis
+├── contexts/      # Contextos do React
+├── hooks/         # Custom hooks
+├── pages/         # Páginas da aplicação
+├── public/        # Arquivos estáticos
+├── styles/        # Estilos globais
+└── utils/         # Funções utilitárias
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
