@@ -1,14 +1,21 @@
 import { Inter } from 'next/font/google';
-import Providers from '../providers';
+import { LanguageProvider } from '@/contexts/LanguageContext';
+import { CountryProvider } from '@/contexts/CountryContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Layout({
   children,
-  params: { lang }
+  params
 }: {
   children: React.ReactNode;
   params: { lang: string };
 }) {
-  return children;
+  return (
+    <LanguageProvider>
+      <CountryProvider>
+        {children}
+      </CountryProvider>
+    </LanguageProvider>
+  );
 } 

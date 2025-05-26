@@ -5,7 +5,13 @@ import Link from "next/link";
 import ReactCountryFlag from "react-country-flag";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useCountry, countries } from "@/contexts/CountryContext";
+import { useCountry } from "@/contexts/CountryContext";
+
+const countries = [
+  { code: 'BR', name: 'Brasil', flag: '🇧🇷', lang: 'pt' },
+  { code: 'US', name: 'USA', flag: '🇺🇸', lang: 'en' },
+  { code: 'ES', name: 'España', flag: '🇪🇸', lang: 'es' }
+];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -75,7 +81,9 @@ export default function Header() {
               className="flex items-center gap-1 px-2 py-1 rounded-md cursor-pointer bg-white min-w-[60px]"
             >
               <span style={{ width: 20.67, aspectRatio: '20.67/12.67', border: '1px solid #4C4D4C', borderRadius: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: '#fff' }}>
-                <ReactCountryFlag countryCode={selectedCountry.code} svg style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', margin: 0, padding: 0 }} title={selectedCountry.name} />
+                {selectedCountry && (
+                  <ReactCountryFlag countryCode={selectedCountry.code} svg style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', margin: 0, padding: 0 }} title={selectedCountry.name} />
+                )}
               </span>
               <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L6 6L11 1" stroke="#4C4D4C" strokeWidth="2" strokeLinecap="round"/>
@@ -168,7 +176,9 @@ export default function Header() {
                 >
                   <span className="text-sm mr-2">{t('selectCountry')}</span>
                   <span style={{ width: 20.67, aspectRatio: '20.67/12.67', border: '1px solid #4C4D4C', borderRadius: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: '#fff' }}>
-                    <ReactCountryFlag countryCode={selectedCountry.code} svg style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', margin: 0, padding: 0 }} title={selectedCountry.name} />
+                    {selectedCountry && (
+                      <ReactCountryFlag countryCode={selectedCountry.code} svg style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', margin: 0, padding: 0 }} title={selectedCountry.name} />
+                    )}
                   </span>
                   <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 1L6 6L11 1" stroke="#4C4D4C" strokeWidth="2" strokeLinecap="round"/>

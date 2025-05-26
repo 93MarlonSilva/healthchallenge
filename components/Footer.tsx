@@ -7,7 +7,13 @@ import { FiPhone, FiMail } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useCountry, countries } from "@/contexts/CountryContext";
+import { useCountry } from "@/contexts/CountryContext";
+
+const countries = [
+  { code: 'BR', name: 'Brasil', flag: '🇧🇷', lang: 'pt' },
+  { code: 'US', name: 'USA', flag: '🇺🇸', lang: 'en' },
+  { code: 'ES', name: 'España', flag: '🇪��', lang: 'es' }
+];
 
 const Footer = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -102,22 +108,24 @@ const Footer = () => {
               className="flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-lg hover:bg-white/20 transition-colors"
             >
               <span className="text-sm mr-2">{t('selectCountry')}</span>
-              <ReactCountryFlag
-                countryCode={selectedCountry.code}
-                svg
-                style={{
-                  height: '24px',
-                  width: 'auto',
-                  border: '1px solid #4C4D4C',
-                  borderRadius: 0,
-                  background: '#fff',
-                  display: 'inline-block',
-                  margin: 0,
-                  padding: 0,
-                  verticalAlign: 'middle'
-                }}
-                title={selectedCountry.name}
-              />
+              {selectedCountry && (
+                <ReactCountryFlag
+                  countryCode={selectedCountry.code}
+                  svg
+                  style={{
+                    height: '24px',
+                    width: 'auto',
+                    border: '1px solid #4C4D4C',
+                    borderRadius: 0,
+                    background: '#fff',
+                    display: 'inline-block',
+                    margin: 0,
+                    padding: 0,
+                    verticalAlign: 'middle'
+                  }}
+                  title={selectedCountry.name}
+                />
+              )}
               <svg
                 className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
                 fill="none"

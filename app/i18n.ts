@@ -5,14 +5,26 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 
+// Função para obter o idioma inicial
+const getInitialLanguage = () => {
+  if (typeof window !== 'undefined') {
+    const path = window.location.pathname;
+    const langMatch = path.match(/^\/([a-z]{2})\//);
+    return langMatch ? langMatch[1] : 'pt';
+  }
+  return 'pt';
+};
+
 // Função para inicializar o i18next
-const initI18next = async (lng: string) => {
+const initI18next = async () => {
+  const initialLang = getInitialLanguage();
+
   await i18n
     .use(Backend)
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
-      lng,
+      lng: initialLang,
       fallbackLng: 'pt',
       debug: false,
       interpolation: {
@@ -45,7 +57,7 @@ const initI18next = async (lng: string) => {
   return i18n;
 };
 
-// Inicializando com o idioma padrão
-initI18next('pt');
+// Inicializando o i18next
+initI18next();
 
 export default i18n; 

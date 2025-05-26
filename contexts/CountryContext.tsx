@@ -1,61 +1,56 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useLanguage } from './LanguageContext';
 
 interface Country {
-  name: string;
   code: string;
-  lang: string;
+  name: string;
+  flag: string;
 }
 
 interface CountryContextType {
-  selectedCountry: Country;
+  selectedCountry: Country | null;
   setSelectedCountry: (country: Country) => void;
 }
 
-const countries = [
-  { name: 'Brasil', code: 'BR', lang: 'pt' },
-  { name: 'USA', code: 'US', lang: 'en' },
-  { name: 'Espanha', code: 'ES', lang: 'es' }
-];
-
 const CountryContext = createContext<CountryContextType | null>(null);
 
-export function CountryProvider({ children }: { children: ReactNode }) {
+export function CountryProvider({ children }: { children: React.ReactNode }) {
   const { i18n } = useLanguage();
-  const [selectedCountry, setSelectedCountry] = useState(() => {
+  const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
     const savedCountry = localStorage.getItem('selectedCountry');
     if (savedCountry) {
       const parsed = JSON.parse(savedCountry);
-      // Verifica se o país salvo ainda é válido
-      if (countries.some(c => c.code === parsed.code)) {
-        return parsed;
-      }
-    }
-    // Se não houver país salvo ou for inválido, usa o país correspondente ao idioma atual
-    return countries.find(country => country.lang === i18n.language) || countries[0];
-  });
-
-  // Salva o país selecionado no localStorage
-  useEffect(() => {
-    localStorage.setItem('selectedCountry', JSON.stringify(selectedCountry));
-  }, [selectedCountry]);
-
-  // Sincroniza o idioma quando o país muda
-  useEffect(() => {
-    if (i18n.language !== selectedCountry.lang) {
-      i18n.changeLanguage(selectedCountry.lang);
-    }
-  }, [selectedCountry, i18n]);
-
-  // Sincroniza o país quando o idioma muda
-  useEffect(() => {
-    const country = countries.find(country => country.lang === i18n.language);
-    if (country && country.code !== selectedCountry.code) {
-      setSelectedCountry(country);
+      setSelectedCountry(parsed);
+    } else {
+      // Define o país padrão com base no idioma atual
+      const defaultCountry = {
+        code: i18n.language === 'pt' ? 'BR' : i18n.language === 'es' ? 'ES' : 'US',
+        name: i18n.language === 'pt' ? 'Brasil' : i18n.language === 'es' ? 'España' : 'United States',
+        flag: i18n.language === 'pt' ? '🇧🇷' : i18n.language === 'es' ? '🇪🇸' : '🇺🇸'
+      };
+      setSelectedCountry(defaultCountry);
+      localStorage.setItem('selectedCountry', JSON.stringify(defaultCountry));
     }
   }, [i18n.language]);
+
+  // Atualiza o país quando o idioma muda
+  useEffect(() => {
+    if (mounted) {
+      const newCountry = {
+        code: i18n.language === 'pt' ? 'BR' : i18n.language === 'es' ? 'ES' : 'US',
+        name: i18n.language === 'pt' ? 'Brasil' : i18n.language === 'es' ? 'España' : 'United States',
+        flag: i18n.language === 'pt' ? '🇧🇷' : i18n.language === 'es' ? '🇪🇸' : '🇺🇸'
+      };
+      setSelectedCountry(newCountry);
+      localStorage.setItem('selectedCountry', JSON.stringify(newCountry));
+    }
+  }, [i18n.language, mounted]);
 
   return (
     <CountryContext.Provider value={{ selectedCountry, setSelectedCountry }}>
@@ -70,6 +65,4 @@ export function useCountry() {
     throw new Error('useCountry must be used within a CountryProvider');
   }
   return context;
-}
-
-export { countries }; 
+} 
