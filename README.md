@@ -3,6 +3,10 @@
 ## Sobre o Projeto
 Este é um projeto de e-commerce desenvolvido como um desafio técnico, utilizando tecnologias modernas e otimizadas para performance e escalabilidade.
 
+## Deploy
+O projeto está disponível online através da Vercel:
+- [Health Challenge E-commerce](https://healtchallenge-react-next.vercel.app/pt)
+
 ## Tecnologias Utilizadas
 
 ### Next.js
