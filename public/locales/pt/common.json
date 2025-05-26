@@ -26,5 +26,15 @@
   "contactAndQuestions": "Contato e Dúvidas",
   "followUs": "Siga-nos",
   "rightsReserved": "Todos os direitos reservados",
-  "homeDescription": "O HealthChallenge é uma aplicação dedicada à promoção da saúde e do bem-estar. Aqui você encontra informações, produtos e recursos para cuidar melhor do seu corpo e da sua qualidade de vida. Explore nossas soluções ortopédicas e descubra como podemos ajudar você a viver com mais conforto e saúde!"
+  "homeDescription": "O HealthChallenge é uma aplicação dedicada à promoção da saúde e do bem-estar. Aqui você encontra informações, produtos e recursos para cuidar melhor do seu corpo e da sua qualidade de vida. Explore nossas soluções ortopédicas e descubra como podemos ajudar você a viver com mais conforto e saúde!",
+  "videoSection": {
+    "title": "Fabricação <b style=\"color: var(--color-orange);\">própria</b> e nacional.<br/> <b style=\"color: var(--color-orange);\">Qualidade</b> garantida!",
+    "description": "Antes de utilizar o produto, leia atentamente as precauções e Instruções de uso."
+  },
+  "Colors available": "Cores disponíveis",
+  "Sizes available": "Tamanhos disponíveis",
+  "Discover your ideal size": "Descubra o seu tamanho ideal",
+  "Size chart": "Tabela de medidas",
+  "Find online stores": "Encontrar lojas online",
+  "Liked this product? Be a seller": "Gostou desse produto? Seja um vendedor"
 } 

@@ -26,5 +26,15 @@
   "contactAndQuestions": "Contact and Questions",
   "followUs": "Follow Us",
   "rightsReserved": "All rights reserved",
-  "homeDescription": "HealthChallenge is an application dedicated to promoting health and well-being. Here you'll find information, products, and resources to better care for your body and quality of life. Explore our orthopedic solutions and discover how we can help you live with more comfort and health!"
+  "homeDescription": "HealthChallenge is an application dedicated to promoting health and well-being. Here you'll find information, products, and resources to better care for your body and quality of life. Explore our orthopedic solutions and discover how we can help you live with more comfort and health!",
+  "videoSection": {
+    "title": "In-house <b style=\"color: var(--color-orange);\">manufacturing</b> and national.<br/> <b style=\"color: var(--color-orange);\">Quality</b> guaranteed!",
+    "description": "Before using the product, carefully read the precautions and instructions for use."
+  },
+  "Colors available": "Colors available",
+  "Sizes available": "Sizes available",
+  "Discover your ideal size": "Discover your ideal size",
+  "Size chart": "Size chart",
+  "Find online stores": "Find online stores",
+  "Liked this product? Be a seller": "Liked this product? Be a seller"
 } 

@@ -24,7 +24,7 @@ export default function Home() {
     <div>
       <Header />
       <div className="relative">
-        <main className="flex flex-col md:flex-row items-center justify-center min-h-[70vh] px-4 text-center md:text-left bg-background gap-4 max-w-7xl mx-auto">
+        <main className="flex flex-col md:flex-row items-center justify-center min-h-[70vh] px-4 text-center md:text-left bg-background gap-4 max-w-7xl mx-auto mt-10">
           <div className="flex-1 max-w-xl relative z-10">
             <TypewriterText />
             <h1 className="text-5xl font-bold mb-20 text-[var(--color-purple)]">

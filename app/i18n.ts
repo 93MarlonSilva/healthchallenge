@@ -12,7 +12,7 @@ const initI18next = async (lng: string) => {
     .use(LanguageDetector)
     .use(initReactI18next)
     .init({
-      lng, // Definindo o idioma inicial explicitamente
+      lng,
       fallbackLng: 'pt',
       debug: false,
       interpolation: {
@@ -32,7 +32,12 @@ const initI18next = async (lng: string) => {
         caches: []
       },
       react: {
-        useSuspense: false,
+        useSuspense: true,
+        bindI18n: 'languageChanged loaded',
+        bindI18nStore: 'added removed',
+        transEmptyNodeValue: '',
+        transSupportBasicHtmlNodes: true,
+        transKeepBasicHtmlNodesFor: ['br', 'strong', 'i', 'p']
       },
       load: 'languageOnly',
       supportedLngs: ['pt', 'en', 'es']

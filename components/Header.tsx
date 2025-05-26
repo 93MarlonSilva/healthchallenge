@@ -74,7 +74,7 @@ export default function Header() {
               onClick={() => setIsOpen(!isOpen)}
               className="flex items-center gap-1 px-2 py-1 rounded-md cursor-pointer bg-white min-w-[60px]"
             >
-              <span className="text-sm mr-2">{t('selectCountry')}</span>
+           
               <span style={{ width: 20.67, aspectRatio: '20.67/12.67', border: '1px solid #4C4D4C', borderRadius: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: '#fff' }}>
                 <ReactCountryFlag countryCode={selectedCountry.code} svg style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', margin: 0, padding: 0 }} title={selectedCountry.name} />
               </span>

@@ -45,7 +45,7 @@ const products: Product[] = [
 const ITEMS_PER_PAGE = 9;
 
 export default function OrthopedicPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [mounted, setMounted] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [currentProducts, setCurrentProducts] = useState<Product[]>([]);
@@ -150,7 +150,7 @@ export default function OrthopedicPage() {
       </div>
 
       {/* Divider */}
-      <hr className="my-6 mx-5 border border-[#ececec] h-0.5px" />
+      <hr className="my-6 mx-12 border border-[#ececec] h-0.5px" />
 
       {/* Products and Filters Layout */}
       <div className="px-4 sm:px-6 py-12 flex flex-col md:flex-row md:ml-[10%] lg:ml-[15%] xl:ml-[20%]">
@@ -281,13 +281,15 @@ export default function OrthopedicPage() {
           <div className="grid grid-cols-3 gap-6">
             {currentProducts.map(product => (
               <div key={product.id} className="flex flex-col items-center text-center">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  width={450}
-                  height={338}
-                  objectFit="contain"
-                />
+                <a href={`/${i18n.language}/orthopedic/${product.code}`}>
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    width={450}
+                    height={338}
+                    objectFit="contain"
+                  />
+                </a>
                 <p className="mt-2 text-lg font-semibold text-[var(--color-dark)]">{product.name}</p>
                 <p className="text-sm text-gray-600">Cód. Produto: {product.code}</p>
               </div>
