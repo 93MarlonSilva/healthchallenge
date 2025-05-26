@@ -7,17 +7,17 @@ import { FiPhone, FiMail } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
-
-const countries = [
-  { name: 'Brasil', code: 'BR', lang: 'pt' },
-  { name: 'USA', code: 'US', lang: 'en' },
-  { name: 'Espanha', code: 'ES', lang: 'es' }
-];
+import { useCountry, countries } from "@/contexts/CountryContext";
 
 const Footer = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedCountry, setSelectedCountry] = useState(countries[0]);
   const { t, setLanguage } = useLanguage();
+  const { selectedCountry, setSelectedCountry } = useCountry();
+
+  const handleCountryChange = (country: typeof countries[0]) => {
+    setSelectedCountry(country);
+    setLanguage(country.lang as 'pt' | 'en' | 'es');
+  };
 
   return (
     <footer className="bg-[var(--color-semidark)] text-white py-8 mt-10">
@@ -103,7 +103,7 @@ const Footer = () => {
             >
               <span className="text-sm mr-2">{t('selectCountry')}</span>
               <ReactCountryFlag
-                countryCode={countries.find(c => c.name === selectedCountry.name)?.code || 'BR'}
+                countryCode={selectedCountry.code}
                 svg
                 style={{
                   height: '24px',
@@ -134,8 +134,7 @@ const Footer = () => {
                   <button
                     key={country.code}
                     onClick={() => {
-                      setSelectedCountry(country);
-                      setLanguage(country.lang as 'pt' | 'en' | 'es');
+                      handleCountryChange(country);
                       setIsOpen(false);
                     }}
                     className="flex items-center space-x-2 w-full px-4 py-2 hover:bg-white/10 transition-colors"

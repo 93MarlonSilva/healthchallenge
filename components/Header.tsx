@@ -5,29 +5,29 @@ import Link from "next/link";
 import ReactCountryFlag from "react-country-flag";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
-
-const countries = [
-  { name: 'Brasil', code: 'BR', lang: 'pt' },
-  { name: 'USA', code: 'US', lang: 'en' },
-  { name: 'Espanha', code: 'ES', lang: 'es' }
-];
+import { useCountry, countries } from "@/contexts/CountryContext";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedCountry, setSelectedCountry] = useState(countries[0]);
   const [isOpenMobile, setIsOpenMobile] = useState(false);
   const [showSearchMobile, setShowSearchMobile] = useState(false);
   const searchInputRef = React.useRef(null);
   const [showSearchDesktop, setShowSearchDesktop] = useState(false);
   const searchInputDesktopRef = useRef<HTMLInputElement>(null);
   const { t, setLanguage } = useLanguage();
+  const { selectedCountry, setSelectedCountry } = useCountry();
 
   useEffect(() => {
     if (showSearchDesktop && searchInputDesktopRef.current) {
       searchInputDesktopRef.current.focus();
     }
   }, [showSearchDesktop]);
+
+  const handleCountryChange = (country: typeof countries[0]) => {
+    setSelectedCountry(country);
+    setLanguage(country.lang as 'pt' | 'en' | 'es');
+  };
 
   return (
     <>
@@ -74,7 +74,6 @@ export default function Header() {
               onClick={() => setIsOpen(!isOpen)}
               className="flex items-center gap-1 px-2 py-1 rounded-md cursor-pointer bg-white min-w-[60px]"
             >
-           
               <span style={{ width: 20.67, aspectRatio: '20.67/12.67', border: '1px solid #4C4D4C', borderRadius: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: '#fff' }}>
                 <ReactCountryFlag countryCode={selectedCountry.code} svg style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', margin: 0, padding: 0 }} title={selectedCountry.name} />
               </span>
@@ -88,8 +87,7 @@ export default function Header() {
                   <button
                     key={country.code}
                     onClick={() => {
-                      setSelectedCountry(country);
-                      setLanguage(country.lang as 'pt' | 'en' | 'es');
+                      handleCountryChange(country);
                       setIsOpen(false);
                     }}
                     className="flex items-center gap-2 px-3 py-2 hover:bg-gray-100 w-full"
@@ -182,8 +180,7 @@ export default function Header() {
                       <button
                         key={country.code}
                         onClick={() => {
-                          setSelectedCountry(country);
-                          setLanguage(country.lang as 'pt' | 'en' | 'es');
+                          handleCountryChange(country);
                           setIsOpenMobile(false);
                           setMenuOpen(false);
                         }}
