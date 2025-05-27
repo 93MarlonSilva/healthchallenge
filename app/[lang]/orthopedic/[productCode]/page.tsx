@@ -52,10 +52,70 @@ export default function ProductDetailPage() {
   const params = useParams();
   const productCode = typeof params?.productCode === 'string' ? params.productCode : undefined;
   const [mounted, setMounted] = useState(false);
+  const [currentProductIndex, setCurrentProductIndex] = useState(0);
+  const productsContainerRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const handlePreviousClick = () => {
+    if (currentProductIndex > 0) {
+      setCurrentProductIndex(prev => prev - 1);
+      scrollToProduct(currentProductIndex - 1);
+    }
+  };
+
+  const handleNextClick = () => {
+    if (currentProductIndex < orthopedicProducts.length - 1) {
+      setCurrentProductIndex(prev => prev + 1);
+      scrollToProduct(currentProductIndex + 1);
+    }
+  };
+
+  const scrollToProduct = (index: number) => {
+    if (productsContainerRef.current) {
+      const container = productsContainerRef.current;
+      const productWidth = 256; // 240px (w-60) + 16px (gap-4)
+      const scrollPosition = index * productWidth;
+      
+      container.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Touch event handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (productsContainerRef.current) {
+      setIsDragging(true);
+      setStartX(e.touches[0].pageX - productsContainerRef.current.offsetLeft);
+      setScrollLeft(productsContainerRef.current.scrollLeft);
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !productsContainerRef.current) return;
+    
+    const x = e.touches[0].pageX - productsContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed multiplier
+    productsContainerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    if (productsContainerRef.current) {
+      const container = productsContainerRef.current;
+      const productWidth = 256; // 240px (w-60) + 16px (gap-4)
+      const newIndex = Math.round(container.scrollLeft / productWidth);
+      setCurrentProductIndex(Math.max(0, Math.min(newIndex, orthopedicProducts.length - 1)));
+      scrollToProduct(Math.max(0, Math.min(newIndex, orthopedicProducts.length - 1)));
+    }
+  };
 
   const product = productCode ? productData[productCode] : undefined;
   const [mainImageIndex, setMainImageIndex] = useState(0);
@@ -402,16 +462,37 @@ export default function ProductDetailPage() {
 
         {/* Other Products Section */}
         <div className="px-4 sm:px-6 py-12 md:ml-[5%] lg:ml-[10%] xl:ml-[10%]">
-          <h2 className="text-2xl sm:text-3xl font-medium mb-8 text-center md:text-left">
-            {t('Other Products')}
-          </h2>
-          <div className="flex items-center gap-4">
-            {/* Left Arrow */}
-            <button className="p-2 text-[var(--color-dark)] disabled:opacity-50">
-              &lt;
-            </button>
-            <div className="flex gap-4 overflow-x-auto hide-scrollbar flex-grow">
-              {orthopedicProducts.map((product) => (
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-medium text-center md:text-left">
+              {t('Other Products')}
+            </h2>
+            <div className="flex gap-2">
+              <button 
+                onClick={handlePreviousClick}
+                disabled={currentProductIndex === 0}
+                className="w-9 h-9 p-2 bg-white text-[var(--color-dark)] rounded-full shadow-md disabled:opacity-50 hover:bg-gray-100 transition-colors duration-200 flex items-center justify-center"
+              >
+                &lt;
+              </button>
+              <button 
+                onClick={handleNextClick}
+                disabled={currentProductIndex === orthopedicProducts.length - 1}
+                className="w-9 h-9 p-2 bg-white text-[var(--color-dark)] rounded-full shadow-md disabled:opacity-50 hover:bg-gray-100 transition-colors duration-200 flex items-center justify-center"
+              >
+                &gt;
+              </button>
+
+            </div>
+          </div>
+          <div 
+            className="overflow-x-auto hide-scrollbar touch-pan-x" 
+            ref={productsContainerRef}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div className="flex gap-4">
+              {orthopedicProducts.map((product, index) => (
                 <div key={product.id} className="flex-shrink-0 w-60">
                   <Link href={`/${i18n.language}/orthopedic/${product.code}`}>
                     <div className="relative w-full h-60 bg-gray-200 rounded-lg overflow-hidden group">
@@ -433,10 +514,6 @@ export default function ProductDetailPage() {
                 </div>
               ))}
             </div>
-            {/* Right Arrow */}
-            <button className="p-2 text-[var(--color-dark)] disabled:opacity-50">
-              &gt;
-            </button>
           </div>
 
           <style jsx>{`
