@@ -21,11 +21,11 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className="relative overflow-hidden">
       <Header />
       <div className="relative">
-        <main className="flex flex-col md:flex-row items-center justify-center min-h-[70vh] px-4 text-center md:text-left bg-background gap-4 max-w-7xl mx-auto mt-10">
-          <div className="flex-1 max-w-xl relative z-10">
+        <main className="flex flex-col md:flex-row items-center justify-center min-h-[80vh] px-4 text-center md:text-left bg-background gap-4 max-w-7xl mx-auto mt-10 rounded-2xl shadow-2xl overflow-hidden relative z-20">
+          <div className="flex-1 max-w-xl relative z-30">
             <TypewriterText />
             <h1 className="text-5xl font-bold mb-20 text-[var(--color-purple)]">
               HealthChallenge
@@ -34,6 +34,8 @@ export default function Home() {
               {t('homeDescription')}
             </p>
           </div>
+
+          {/* Imagem à frente */}
           <div className="flex-1 flex justify-center lg:ml-10 relative" style={{ zIndex: 20 }}>
             <Image
               src="/assets/images/home.png"
@@ -54,17 +56,17 @@ export default function Home() {
             />
           </div>
         </main>
+
+        {/* 🟣 Ajustado: Único degradê roxo, full-width, subindo suavemente */}
         <div
-          className="absolute inset-0 pointer-events-none"
+          className="absolute bottom-10 left-6 right-6 rounded-[150px] h-[60vh] pointer-events-none z-0"
           style={{
             background:
-              "linear-gradient(to right, rgba(255,255,255, 0.95) 0%, rgba(255,255,255,0.8) 30%, rgba(255,255,255,0.4) 60%, rgba(128, 39, 108, 0.2) 100%)",
-            opacity: 1,
-            zIndex: 5,
+              "linear-gradient(to top, rgba(128, 39, 108, 0.15) 0%, rgba(128, 39, 108, 0.05) 50%, transparent 100%)",
           }}
         />
       </div>
       <Footer />
     </div>
   );
-} 
+}

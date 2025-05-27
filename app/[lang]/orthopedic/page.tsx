@@ -15,33 +15,203 @@ interface Product {
   name: string;
   code: string;
   image: string;
+  tags: string[];
+  isNewRelease: boolean;
 }
 
 const products: Product[] = [
-  { id: 1, name: 'Órtese Soft Curta com Polegar', code: 'OR1065', image: '/assets/images/list/curtaPlegar.png' },
-  { id: 2, name: 'Órtese Soft Curta sem Polegar', code: 'OR1066', image: '/assets/images/list/semPolegar.png' },
-  { id: 3, name: 'Órtese Soft Curta com Polegar', code: 'OR1065', image: '/assets/images/list/curtaPlegar.png' },
-  { id: 4, name: 'Órtese Safe Air', code: 'OR1051', image: '/assets/images/list/softair.png' },
-  { id: 5, name: 'Órtese Soft Curta com Polegar', code: 'OR1065', image: '/assets/images/list/softPolegar.png' },
-  { id: 6, name: 'Órtese Soft Curta sem Polegar', code: 'OR1066', image: '/assets/images/list/semPolegar.png' },
-  { id: 7, name: 'Órtese Soft Curta com Polegar', code: 'OR1065', image: '/assets/images/list/curtaPlegar.png' },
-  { id: 8, name: 'Órtese Soft Curta sem Polegar', code: 'OR1066', image: '/assets/images/list/semPolegar.png' },
-  { id: 9, name: 'Órtese Soft Curta com Polegar', code: 'OR1065', image: '/assets/images/list/curtaPlegar.png' },
-  { id: 10, name: 'Órtese Safe Air', code: 'OR1051', image: '/assets/images/list/softair.png' },
-  { id: 11, name: 'Órtese Soft Curta com Polegar', code: 'OR1065', image: '/assets/images/list/softPolegar.png' },
-  { id: 12, name: 'Órtese Soft Curta sem Polegar', code: 'OR1066', image: '/assets/images/list/semPolegar.png' },
-  { id: 13, name: 'Órtese Soft Curta com Polegar', code: 'OR1065', image: '/assets/images/list/curtaPlegar.png' },
-  { id: 14, name: 'Órtese Soft Curta sem Polegar', code: 'OR1066', image: '/assets/images/list/semPolegar.png' },
-  { id: 15, name: 'Órtese Soft Curta com Polegar', code: 'OR1065', image: '/assets/images/list/curtaPlegar.png' },
-  { id: 16, name: 'Órtese Safe Air', code: 'OR1051', image: '/assets/images/list/softair.png' },
-  { id: 17, name: 'Órtese Soft Curta com Polegar', code: 'OR1065', image: '/assets/images/list/softPolegar.png' },
-  { id: 18, name: 'Órtese Soft Curta sem Polegar', code: 'OR1066', image: '/assets/images/list/semPolegar.png' },
-  { id: 19, name: 'Órtese Soft Curta com Polegar', code: 'OR1065', image: '/assets/images/list/curtaPlegar.png' },
-  { id: 20, name: 'Órtese Soft Curta sem Polegar', code: 'OR1066', image: '/assets/images/list/semPolegar.png' },
-  { id: 21, name: 'Órtese Soft Curta com Polegar', code: 'OR1065', image: '/assets/images/list/curtaPlegar.png' },
-  { id: 22, name: 'Órtese Safe Air', code: 'OR1051', image: '/assets/images/list/softair.png' },
-  { id: 23, name: 'Órtese Soft Curta com Polegar', code: 'OR1065', image: '/assets/images/list/softPolegar.png' },
-  { id: 24, name: 'Órtese Soft Curta sem Polegar', code: 'OR1066', image: '/assets/images/list/semPolegar.png' },
+  { 
+    id: 1, 
+    name: 'Órtese Soft Curta com Polegar', 
+    code: 'OR1065', 
+    image: '/assets/images/list/curtaPlegar.png',
+    tags: ['Hidrolight Neo®', 'Softline®'],
+    isNewRelease: true
+  },
+  { 
+    id: 2, 
+    name: 'Órtese Soft Curta sem Polegar', 
+    code: 'OR1066', 
+    image: '/assets/images/list/semPolegar.png',
+    tags: ['Comfort Air®', 'Softline®'],
+    isNewRelease: false
+  },
+  { 
+    id: 3, 
+    name: 'Órtese Soft Curta com Polegar', 
+    code: 'OR1065', 
+    image: '/assets/images/list/curtaPlegar.png',
+    tags: ['Ortho Recovery®', 'Hidrolight Neo®'],
+    isNewRelease: true
+  },
+  { 
+    id: 4, 
+    name: 'Órtese Safe Air', 
+    code: 'OR1051', 
+    image: '/assets/images/list/softair.png',
+    tags: ['Air Flex®', 'Comfort Air®'],
+    isNewRelease: false
+  },
+  { 
+    id: 5, 
+    name: 'Órtese Soft Curta com Polegar', 
+    code: 'OR1065', 
+    image: '/assets/images/list/softPolegar.png',
+    tags: ['Foot Care®', 'Lean®'],
+    isNewRelease: true
+  },
+  { 
+    id: 6, 
+    name: 'Órtese Soft Curta sem Polegar', 
+    code: 'OR1066', 
+    image: '/assets/images/list/semPolegar.png',
+    tags: ['Hidrolight Neo®', 'Air Flex®'],
+    isNewRelease: false
+  },
+  { 
+    id: 7, 
+    name: 'Órtese Soft Curta com Polegar', 
+    code: 'OR1065', 
+    image: '/assets/images/list/curtaPlegar.png',
+    tags: ['Comfort Air®', 'Softline®'],
+    isNewRelease: true
+  },
+  { 
+    id: 8, 
+    name: 'Órtese Soft Curta sem Polegar', 
+    code: 'OR1066', 
+    image: '/assets/images/list/semPolegar.png',
+    tags: ['Ortho Recovery®', 'Foot Care®'],
+    isNewRelease: false
+  },
+  { 
+    id: 9, 
+    name: 'Órtese Soft Curta com Polegar', 
+    code: 'OR1065', 
+    image: '/assets/images/list/curtaPlegar.png',
+    tags: ['Lean®', 'Hidrolight Neo®'],
+    isNewRelease: true
+  },
+  { 
+    id: 10, 
+    name: 'Órtese Safe Air', 
+    code: 'OR1051', 
+    image: '/assets/images/list/softair.png',
+    tags: ['Air Flex®', 'Comfort Air®'],
+    isNewRelease: false
+  },
+  { 
+    id: 11, 
+    name: 'Órtese Soft Curta com Polegar', 
+    code: 'OR1065', 
+    image: '/assets/images/list/softPolegar.png',
+    tags: ['Softline®', 'Foot Care®'],
+    isNewRelease: true
+  },
+  { 
+    id: 12, 
+    name: 'Órtese Soft Curta sem Polegar', 
+    code: 'OR1066', 
+    image: '/assets/images/list/semPolegar.png',
+    tags: ['Hidrolight Neo®', 'Lean®'],
+    isNewRelease: false
+  },
+  { 
+    id: 13, 
+    name: 'Órtese Soft Curta com Polegar', 
+    code: 'OR1065', 
+    image: '/assets/images/list/curtaPlegar.png',
+    tags: ['Comfort Air®', 'Ortho Recovery®'],
+    isNewRelease: true
+  },
+  { 
+    id: 14, 
+    name: 'Órtese Soft Curta sem Polegar', 
+    code: 'OR1066', 
+    image: '/assets/images/list/semPolegar.png',
+    tags: ['Air Flex®', 'Softline®'],
+    isNewRelease: false
+  },
+  { 
+    id: 15, 
+    name: 'Órtese Soft Curta com Polegar', 
+    code: 'OR1065', 
+    image: '/assets/images/list/curtaPlegar.png',
+    tags: ['Foot Care®', 'Hidrolight Neo®'],
+    isNewRelease: true
+  },
+  { 
+    id: 16, 
+    name: 'Órtese Safe Air', 
+    code: 'OR1051', 
+    image: '/assets/images/list/softair.png',
+    tags: ['Lean®', 'Comfort Air®'],
+    isNewRelease: false
+  },
+  { 
+    id: 17, 
+    name: 'Órtese Soft Curta com Polegar', 
+    code: 'OR1065', 
+    image: '/assets/images/list/softPolegar.png',
+    tags: ['Ortho Recovery®', 'Air Flex®'],
+    isNewRelease: true
+  },
+  { 
+    id: 18, 
+    name: 'Órtese Soft Curta sem Polegar', 
+    code: 'OR1066', 
+    image: '/assets/images/list/semPolegar.png',
+    tags: ['Softline®', 'Foot Care®'],
+    isNewRelease: false
+  },
+  { 
+    id: 19, 
+    name: 'Órtese Soft Curta com Polegar', 
+    code: 'OR1065', 
+    image: '/assets/images/list/curtaPlegar.png',
+    tags: ['Hidrolight Neo®', 'Lean®'],
+    isNewRelease: true
+  },
+  { 
+    id: 20, 
+    name: 'Órtese Soft Curta sem Polegar', 
+    code: 'OR1066', 
+    image: '/assets/images/list/semPolegar.png',
+    tags: ['Comfort Air®', 'Ortho Recovery®'],
+    isNewRelease: false
+  },
+  { 
+    id: 21, 
+    name: 'Órtese Soft Curta com Polegar', 
+    code: 'OR1065', 
+    image: '/assets/images/list/curtaPlegar.png',
+    tags: ['Air Flex®', 'Softline®'],
+    isNewRelease: true
+  },
+  { 
+    id: 22, 
+    name: 'Órtese Safe Air', 
+    code: 'OR1051', 
+    image: '/assets/images/list/softair.png',
+    tags: ['Foot Care®', 'Hidrolight Neo®'],
+    isNewRelease: false
+  },
+  { 
+    id: 23, 
+    name: 'Órtese Soft Curta com Polegar', 
+    code: 'OR1065', 
+    image: '/assets/images/list/softPolegar.png',
+    tags: ['Lean®', 'Comfort Air®'],
+    isNewRelease: true
+  },
+  { 
+    id: 24, 
+    name: 'Órtese Soft Curta sem Polegar', 
+    code: 'OR1066', 
+    image: '/assets/images/list/semPolegar.png',
+    tags: ['Ortho Recovery®', 'Air Flex®'],
+    isNewRelease: false
+  },
 ];
 
 const ITEMS_PER_PAGE = 9;
@@ -54,15 +224,92 @@ export default function OrthopedicPage() {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [showMobileFilters, setShowMobileFilters] = useState(false);
   const [showDesktopSearchBar, setShowDesktopSearchBar] = useState(false);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [showNewReleases, setShowNewReleases] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showFamiliesTechnologies, setShowFamiliesTechnologies] = useState(false);
+  const [showProductsFilter, setShowProductsFilter] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    filterAndPaginateProducts();
+  }, [currentPage, selectedTags, showNewReleases, searchQuery]);
+
+  const filterAndPaginateProducts = () => {
+    let filteredProducts = [...products];
+    
+    // Filtrar por tags selecionadas
+    if (selectedTags.length > 0) {
+      filteredProducts = filteredProducts.filter(product => 
+        selectedTags.some(tag => product.tags.includes(tag))
+      );
+    }
+    
+    // Filtrar por lançamentos
+    if (showNewReleases) {
+      filteredProducts = filteredProducts.filter(product => product.isNewRelease);
+    }
+    
+    // Filtrar por termo de busca
+    if (searchQuery) {
+      const lowerCaseQuery = searchQuery.toLowerCase();
+      filteredProducts = filteredProducts.filter(product => 
+        product.name.toLowerCase().includes(lowerCaseQuery) ||
+        product.code.toLowerCase().includes(lowerCaseQuery) ||
+        product.tags.some(tag => tag.toLowerCase().includes(lowerCaseQuery))
+      );
+    }
+    
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
-    setCurrentProducts(products.slice(startIndex, endIndex));
-  }, [currentPage]);
+    setCurrentProducts(filteredProducts.slice(startIndex, endIndex));
+  };
 
-  const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE);
+  const handleTagClick = (tag: string) => {
+    setSelectedTags(prev => {
+      if (prev.includes(tag)) {
+        return prev.filter(t => t !== tag);
+      }
+      return [...prev, tag];
+    });
+    setCurrentPage(1);
+    setSearchQuery('');
+  };
+
+  const handleNewReleasesClick = () => {
+    setShowNewReleases(prev => !prev);
+    setCurrentPage(1);
+    setSearchQuery('');
+  };
+  
+  const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
+    setCurrentPage(1);
+    setSelectedTags([]);
+    setShowNewReleases(false);
+  };
+
+  const handleToggleFamiliesTechnologies = () => {
+    setShowFamiliesTechnologies(prev => !prev);
+  };
+
+  const handleToggleProductsFilter = () => {
+    setShowProductsFilter(prev => !prev);
+  };
+
+  const totalPages = Math.ceil(
+    (selectedTags.length > 0 || showNewReleases || searchQuery 
+      ? products.filter(p => 
+          (selectedTags.length === 0 || selectedTags.some(tag => p.tags.includes(tag))) &&
+          (!showNewReleases || p.isNewRelease) &&
+          (!searchQuery || 
+            p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            p.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            p.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+          )
+        ).length 
+      : products.length) / ITEMS_PER_PAGE
+  );
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -85,7 +332,7 @@ export default function OrthopedicPage() {
 
           {/* Breadcrumb positioned absolutely over the image */}
           <div className="absolute top-0 left-0 right-0 z-30">
-            <div className="px-4 sm:px-6 pt-4 text-sm text-[var(--color-dark)] md:ml-[10%] lg:ml-[15%] xl:ml-[20%]">
+            <div className="px-4 sm:px-6 pt-4 text-sm text-[var(--color-dark)] md:ml-[5%] lg:ml-[10%] xl:ml-[10%]">
               <span className="text-[var(--color-semidark)]">{t('navigation.home')} &gt;</span> {t('Orthopedic Line')}
             </div>
           </div>
@@ -103,7 +350,7 @@ export default function OrthopedicPage() {
           <div className="absolute inset-0 opacity-30 z-10"></div>
 
           {/* Content over the image */}
-          <div className="absolute inset-0 z-20 flex flex-col items-start justify-center h-full px-4 sm:px-6 text-[var(--color-dark)] md:ml-[10%] lg:ml-[15%] xl:ml-[20%]">
+          <div className="absolute inset-0 z-20 flex flex-col items-start justify-center h-full px-4 sm:px-6 text-[var(--color-dark)] md:ml-[5%] lg:ml-[10%] xl:ml-[10%]">
             {/* Description Image */}
             <Image
               src="/assets/images/orthopedicdescription.png"
@@ -130,7 +377,7 @@ export default function OrthopedicPage() {
         </div>
 
         {/* Families Section */}
-        <div className="px-4 sm:px-6 py-12 md:ml-[10%] lg:ml-[15%] xl:ml-[20%]">
+        <div className="px-4 sm:px-6 py-12 md:ml-[5%] lg:ml-[10%] xl:ml-[10%]">
           <h2 className="text-2xl sm:text-3xl font-medium mb-6 sm:mb-8 text-center md:text-left">
             {t('Meet the')} 
             <span className="text-[var(--color-purple)]"> {t('exclusive families')}</span> <br />
@@ -138,13 +385,19 @@ export default function OrthopedicPage() {
           </h2>
           {/* Family Buttons/Tags */}
           <div className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4 mb-6 sm:mb-8">
-            <span className="px-3 sm:px-4 py-2 bg-[var(--color-purple)] text-white rounded-full text-sm sm:text-base">Hidrolight Neo®</span>
-            <span className="px-3 sm:px-4 py-2 bg-gray-200 rounded-full text-sm sm:text-base">Comfort Air®</span>
-            <span className="px-3 sm:px-4 py-2 bg-gray-200 rounded-full text-sm sm:text-base">Ortho Recovery®</span>
-            <span className="px-3 sm:px-4 py-2 bg-gray-200 rounded-full text-sm sm:text-base">Air Flex®</span>
-            <span className="px-3 sm:px-4 py-2 bg-gray-200 rounded-full text-sm sm:text-base">Softline®</span>
-            <span className="px-3 sm:px-4 py-2 bg-gray-200 rounded-full text-sm sm:text-base">Foot Care®</span>
-            <span className="px-3 sm:px-4 py-2 bg-gray-200 rounded-full text-sm sm:text-base">Lean®</span>
+            {['Hidrolight Neo®', 'Comfort Air®', 'Ortho Recovery®', 'Air Flex®', 'Softline®', 'Foot Care®', 'Lean®'].map((tag) => (
+              <button
+                key={tag}
+                onClick={() => handleTagClick(tag)}
+                className={`px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base transition-colors duration-200 ${
+                  selectedTags.includes(tag)
+                    ? 'bg-[var(--color-purple)] text-white'
+                    : 'bg-gray-200 hover:bg-[var(--color-lightpurple)] hover:text-white'
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
           </div>
           {/* Description */}
           <ul className="text-base sm:text-lg text-[var(--color-semidark)] text-justify max-w-lg">
@@ -156,24 +409,74 @@ export default function OrthopedicPage() {
         <hr className="my-6 mx-12 border border-[#ececec] h-0.5px" />
 
         {/* Products and Filters Layout */}
-        <div className="px-4 sm:px-6 py-12 flex flex-col md:flex-row md:ml-[10%] lg:ml-[15%] xl:ml-[20%]">
+        <div className="px-4 sm:px-6 py-12 flex flex-col md:flex-row md:ml-[5%] lg:ml-[10%] xl:ml-[10%]">
 
           {/* Filters Area (Conditionally rendered based on screen size) */}
           {/* Desktop Filters Sidebar */}
-          <div className="w-[200px] pr-4 hidden md:block">
-            <div className="border rounded p-4">
-              <h3 className="text-lg font-semibold mb-4">{t('Filters')}</h3>
-              {/* Placeholder filter items */}
-              <div className="border-b py-2">{t('New releases')}</div>
-              <div className="border-b py-2">{t('Families/Technologies')}</div>
-              <div className="py-2">{t('Products')}</div>
+          <div className="w-[250px] pr-10 hidden md:block">
+            <div className="bg-slate-50 rounded-lg  w-full">
+              <h3 className="text-lg font-semibold mb-3 mt-3 p-4 border-b border-stone-300 w-full border rounded-t-lg">{t('Filters')}</h3>
+
+              <div 
+                className={`border-b border-stone-300 py-0 cursor-pointer w-full p-2 mb-2 mt-2 ${showNewReleases ? 'text-[var(--color-purple)]' : ''}`}
+                onClick={handleNewReleasesClick}
+              >
+                <span className="mb-4 block">{t('New releases')}</span>
+              </div>
+
+              {/* Families/Technologies Filter */}
+              <div
+                className="border-b border-stone-300 py-2 cursor-pointer flex justify-between items-center w-full p-2 mb-2"
+                onClick={handleToggleFamiliesTechnologies}
+              >
+                {t('Families/Technologies')}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className={`h-4 w-4 transform transition-transform duration-300 ${showFamiliesTechnologies ? 'rotate-180' : ''}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+
+              {showFamiliesTechnologies && (
+                <div className="py-2 pl-4 w-full">
+                  <p className="text-sm text-gray-600">Family options here...</p>
+                </div>
+              )}
+
+              {/* Products Filter */}
+              <div
+                className="py-2 cursor-pointer flex justify-between items-center w-full p-2 mb-4"
+                onClick={handleToggleProductsFilter}
+              >
+                {t('Products')}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className={`h-4 w-4 transform transition-transform duration-300 ${showProductsFilter ? 'rotate-180' : ''}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+
+              {showProductsFilter && (
+                <div className="py-2 pl-4 w-full">
+                  <p className="text-sm text-gray-600">Product options here...</p>
+                </div>
+              )}
             </div>
           </div>
+
 
           {/* Mobile Filters Button and Dropdown */}
           <div className="md:hidden w-full flex justify-start mb-4 relative">
             <button
-              className="flex items-center gap-2  rounded-full"
+              className="flex items-center gap-2 rounded-full"
               onClick={() => setShowMobileFilters(!showMobileFilters)}
             >
               <FiFilter size={20} />
@@ -183,9 +486,11 @@ export default function OrthopedicPage() {
             {/* Mobile Filters Dropdown */}
             {showMobileFilters && (
               <div className="absolute top-full left-0 w-48 bg-white border rounded shadow-lg z-50">
-                {/* Filter Options */}
                 <div className="p-0">
-                  <div className="px-4 py-2 border-b cursor-pointer">
+                  <div 
+                    className={`px-4 py-2 border-b cursor-pointer ${showNewReleases ? 'text-[var(--color-purple)]' : ''}`}
+                    onClick={handleNewReleasesClick}
+                  >
                     {t('New releases')}
                   </div>
                   <div className="flex justify-between items-center px-4 py-2 border-b cursor-pointer">
@@ -213,7 +518,17 @@ export default function OrthopedicPage() {
                 <div className="flex items-center gap-4 flex-shrink-0">
                   {/* Product Count */}
                   <div className="text-lg font-semibold whitespace-nowrap">
-                    {products.length} {t('products')}
+                    {(selectedTags.length > 0 || showNewReleases || searchQuery 
+                      ? products.filter(p => 
+                          (selectedTags.length === 0 || selectedTags.some(tag => p.tags.includes(tag))) &&
+                          (!showNewReleases || p.isNewRelease) &&
+                          (!searchQuery || 
+                            p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                            p.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                            p.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))
+                          )
+                        ).length 
+                      : products.length)} {t('products')}
                   </div>
                   {/* Desktop Search Area (Visible only on Desktop) */}
                   <div className="hidden md:flex items-center gap-2">
@@ -233,6 +548,8 @@ export default function OrthopedicPage() {
                           type="text"
                           placeholder={t('search')}
                           className="pl-1 px-0 py-1 rounded-lg border border-stone-400 text-base focus:outline-none transition-all duration-200 w-full"
+                          value={searchQuery}
+                          onChange={handleSearchInputChange}
                         />
                       </div>
                     )}
@@ -272,6 +589,8 @@ export default function OrthopedicPage() {
                       type="text"
                       placeholder={t('search')}
                       className="pl-1 px-0 py-1 rounded-lg border border-stone-400 text-base focus:outline-none transition-all duration-200 w-full"
+                      value={searchQuery}
+                      onChange={handleSearchInputChange}
                     />
                   </div>
                 )}
@@ -283,14 +602,23 @@ export default function OrthopedicPage() {
             <div className="grid grid-cols-3 gap-6">
               {currentProducts.map(product => (
                 <div key={product.id} className="flex flex-col items-center text-center">
-                  <Link href={`/${i18n.language}/orthopedic/${product.code}`}>
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      width={450}
-                      height={338}
-                      objectFit="contain"
-                    />
+                  <Link href={`/${i18n.language}/orthopedic/OR1065`}>
+                    <div className="overflow-hidden transition-transform duration-300 hover:scale-110 relative">
+                      {product.isNewRelease && (
+                        <div className="absolute top-2 left-2 bg-[var(--color-lightpurple)] rounded-md px-6 py-3 flex items-center justify-center z-10">
+                          <span className="text-white text-xs font-medium">
+                            {t('New releases')}
+                          </span>
+                        </div>
+                      )}
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        width={450}
+                        height={338}
+                        objectFit="contain"
+                      />
+                    </div>
                   </Link>
                   <p className="mt-2 text-lg font-semibold text-[var(--color-dark)]">{product.name}</p>
                   <p className="text-sm text-gray-600">{t('Product Code')}: {product.code}</p>
