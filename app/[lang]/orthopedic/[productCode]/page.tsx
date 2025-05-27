@@ -9,6 +9,9 @@ import { useParams } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { CountryProvider } from '@/contexts/CountryContext';
+import ProductList from '@/components/ProductList';
+import { orthopedicProducts } from '@/data/orthopedicProducts';
+import Link from 'next/link';
 
 interface ProductDetails {
   code: string;
@@ -45,7 +48,7 @@ const productData: { [key: string]: ProductDetails } = {
 };
 
 export default function ProductDetailPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const params = useParams();
   const productCode = typeof params?.productCode === 'string' ? params.productCode : undefined;
   const [mounted, setMounted] = useState(false);
@@ -300,19 +303,22 @@ export default function ProductDetailPage() {
         </div>
 
         {/* Center Image Section */}
-        <div className="container mx-auto px-4 py-8 flex justify-center">
+        <div className="container mx-auto md:px-40 px-8 py-8 flex justify-center">
           <Image
             src="/assets/images/center.png"
             alt="Center Section Image"
-            width={1200} // Adjust based on expected image width or design
-            height={600} // Adjust based on expected image height or design
+            width={1200} 
+            height={600} 
             layout="responsive"
             objectFit="contain"
             className="w-full"
           />
         </div>
 
-        <hr className="my-6 mx-12 border border-[#ececec] h-0.5px" />
+        {/* Divider before Collapsible Section */}
+        <div className="container mx-auto px-4">
+          <hr className="my-6 border border-[#ececec] h-0.5px" />
+        </div>
 
         {/* Collapsible Details Section */}
         <div className="container mx-auto px-4 py-8">
@@ -389,81 +395,59 @@ export default function ProductDetailPage() {
           </div>
         </div>
 
-        <hr className="my-6 mx-12 border border-[#ececec] h-0.5px" />
+        {/* Divider after Collapsible Section */}
+        <div className="container mx-auto px-4">
+           <hr className="my-6 border border-[#ececec] h-0.5px" />
+        </div>
 
         {/* Other Products Section */}
-        <div className="container mx-auto px-4 py-8">
-          <h2 className="text-3xl font-bold text-[var(--color-semidark)] mb-0 leading-tight">
-              {t('Also check out')} <br/>
-              {t('our other products')}
-            </h2>
+        <div className="px-4 sm:px-6 py-12 md:ml-[5%] lg:ml-[10%] xl:ml-[10%]">
+          <h2 className="text-2xl sm:text-3xl font-medium mb-8 text-center md:text-left">
+            {t('Other Products')}
+          </h2>
           <div className="flex items-center gap-4">
             {/* Left Arrow */}
             <button className="p-2 text-[var(--color-dark)] disabled:opacity-50">
               &lt;
             </button>
             <div className="flex gap-4 overflow-x-auto hide-scrollbar flex-grow">
-              {/* Placeholder Product Card */}
-              <div className="flex-shrink-0 w-60">
-                <div className="relative w-full h-60 bg-gray-200 rounded-lg overflow-hidden">
-                   <Image
-                    src="/assets/images/list/curtaPlegar.png"
-                    alt="Product Image"
-                    fill
-                    className="object-cover"
-                  />
-                   {/* Lançamento Badge */}
-                   <span className="absolute top-2 left-2 bg-purple-500 text-white text-xs px-2 py-1 rounded">Lançamento</span>
+              {orthopedicProducts.map((product) => (
+                <div key={product.id} className="flex-shrink-0 w-60">
+                  <Link href={`/${i18n.language}/orthopedic/${product.code}`}>
+                    <div className="relative w-full h-60 bg-gray-200 rounded-lg overflow-hidden group">
+                      <Image
+                        src={product.image}
+                        alt={product.name}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-110"
+                      />
+                      {product.isNewRelease && (
+                        <span className="absolute top-2 left-2 bg-[var(--color-lightpurple)] text-white text-xs px-2 py-1 rounded">
+                          {t('New releases')}
+                        </span>
+                      )}
+                    </div>
+                  </Link>
+                  <p className="text-gray-800 font-semibold mt-2">{product.name}</p>
+                  <p className="text-gray-600 text-sm">Código SKU {product.code}</p>
                 </div>
-                <p className="text-gray-800 font-semibold mt-2">Órtese Soft Curta com Polegar</p>
-                <p className="text-gray-600 text-sm">Código SKU OR1065 / OR1065</p>
-              </div>
-               {/* Placeholder Product Card */}
-              <div className="flex-shrink-0 w-60">
-                <div className="relative w-full h-60 bg-gray-200 rounded-lg overflow-hidden">
-                   <Image
-                    src="/assets/images/list/semPolegar.png"
-                    alt="Product Image"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <p className="text-gray-800 font-semibold mt-2">Órtese Soft Curta sem Polegar</p>
-                <p className="text-gray-600 text-sm">Código SKU OR1066</p>
-              </div>
-               {/* Placeholder Product Card */}
-              <div className="flex-shrink-0 w-60">
-                <div className="relative w-full h-60 bg-gray-200 rounded-lg overflow-hidden">
-                   <Image
-                    src="/assets/images/list/softPolegar.png"
-                    alt="Product Image"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <p className="text-gray-800 font-semibold mt-2">Órtese de Polegar LEAN®</p>
-                <p className="text-gray-600 text-sm">Código SKU OR1012</p>
-              </div>
-               {/* Placeholder Product Card */}
-              <div className="flex-shrink-0 w-60">
-                <div className="relative w-full h-60 bg-gray-200 rounded-lg overflow-hidden">
-                   <Image
-                    src="/assets/images/list/softair.png"
-                    alt="Product Image"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <p className="text-gray-800 font-semibold mt-2">Órtese Safe Air</p>
-                <p className="text-gray-600 text-sm">Código SKU OR1051</p>
-              </div>
-              {/* Add more product cards here */}
+              ))}
             </div>
             {/* Right Arrow */}
-             <button className="p-2 text-[var(--color-dark)] disabled:opacity-50">
+            <button className="p-2 text-[var(--color-dark)] disabled:opacity-50">
               &gt;
             </button>
           </div>
+
+          <style jsx>{`
+            .hide-scrollbar::-webkit-scrollbar {
+              display: none;
+            }
+            .hide-scrollbar {
+              -ms-overflow-style: none;
+              scrollbar-width: none;
+            }
+          `}</style>
         </div>
 
         <Footer />
@@ -482,16 +466,6 @@ export default function ProductDetailPage() {
             </div>
           </div>
         )}
-
-        <style jsx>{`
-          .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-          }
-          .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-          }
-        `}</style>
       </div>
     </CountryProvider>
   );

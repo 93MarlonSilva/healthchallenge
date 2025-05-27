@@ -1,0 +1,53 @@
+import { Product } from '@/components/ProductList';
+
+export const products: Product[] = [
+  {
+    id: '1',
+    name: 'Órtese Soft Curta com Polegar',
+    code: 'OR1065',
+    image: '/assets/images/list/curtaPlegar.png',
+    isNew: true
+  },
+  {
+    id: '2',
+    name: 'Órtese Soft Curta sem Polegar',
+    code: 'OR1066',
+    image: '/assets/images/list/semPolegar.png'
+  },
+  {
+    id: '3',
+    name: 'Órtese de Polegar LEAN®',
+    code: 'OR1012',
+    image: '/assets/images/list/softPolegar.png'
+  },
+  {
+    id: '4',
+    name: 'Órtese Safe Air',
+    code: 'OR1051',
+    image: '/assets/images/list/softair.png'
+  },
+  {
+    id: '5',
+    name: 'Órtese Soft Curta com Polegar',
+    code: 'OR1065',
+    image: '/assets/images/list/curtaPlegar.png'
+  },
+  {
+    id: '6',
+    name: 'Órtese Soft Curta sem Polegar',
+    code: 'OR1066',
+    image: '/assets/images/list/semPolegar.png'
+  },
+  {
+    id: '7',
+    name: 'Órtese de Polegar LEAN®',
+    code: 'OR1012',
+    image: '/assets/images/list/softPolegar.png'
+  },
+  {
+    id: '8',
+    name: 'Órtese Safe Air',
+    code: 'OR1051',
+    image: '/assets/images/list/softair.png'
+  }
+]; 
