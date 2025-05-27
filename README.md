@@ -79,6 +79,17 @@ yarn dev
 
 4. Acesse o projeto em `http://localhost:3000`
 
+## Screenshots
+
+### Home Page
+![Home Page](/public/assets/images/homemd.png)
+
+### Product Page
+![Product Page](/public/assets/images/productmd.png)
+
+### Orthopedic Page
+![Orthopedic Page](/public/assets/images/orthopedicmd.png)
+
 ## Estrutura do Projeto
 
 ```
