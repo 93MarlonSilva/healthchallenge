@@ -6,48 +6,63 @@ export const products: Product[] = [
     name: 'Órtese Soft Curta com Polegar',
     code: 'OR1065',
     image: '/assets/images/list/curtaPlegar.png',
-    isNew: true
+    isNewRelease: true,
+    tags: ['Hidrolight Neo®']
   },
   {
     id: '2',
     name: 'Órtese Soft Curta sem Polegar',
     code: 'OR1066',
-    image: '/assets/images/list/semPolegar.png'
+    image: '/assets/images/list/semPolegar.png',
+    isNewRelease: false,
+    tags: ['Hidrolight Neo®']
   },
   {
     id: '3',
     name: 'Órtese de Polegar LEAN®',
     code: 'OR1012',
-    image: '/assets/images/list/softPolegar.png'
+    image: '/assets/images/list/softPolegar.png',
+    isNewRelease: false,
+    tags: ['Hidrolight Neo®']
   },
   {
     id: '4',
     name: 'Órtese Safe Air',
     code: 'OR1051',
-    image: '/assets/images/list/softair.png'
+    image: '/assets/images/list/softair.png',
+    isNewRelease: false,
+    tags: ['Hidrolight Neo®']
   },
   {
     id: '5',
     name: 'Órtese Soft Curta com Polegar',
     code: 'OR1065',
-    image: '/assets/images/list/curtaPlegar.png'
+    image: '/assets/images/list/curtaPlegar.png',
+    isNewRelease: false,
+    tags: ['Hidrolight Neo®']
   },
   {
     id: '6',
     name: 'Órtese Soft Curta sem Polegar',
     code: 'OR1066',
-    image: '/assets/images/list/semPolegar.png'
+    image: '/assets/images/list/semPolegar.png',
+    isNewRelease: false,
+    tags: ['Hidrolight Neo®']
   },
   {
     id: '7',
     name: 'Órtese de Polegar LEAN®',
     code: 'OR1012',
-    image: '/assets/images/list/softPolegar.png'
+    image: '/assets/images/list/softPolegar.png',
+    isNewRelease: false,
+    tags: ['Hidrolight Neo®']
   },
   {
     id: '8',
     name: 'Órtese Safe Air',
     code: 'OR1051',
-    image: '/assets/images/list/softair.png'
+    image: '/assets/images/list/softair.png',
+    isNewRelease: false,
+    tags: ['Hidrolight Neo®']
   }
 ]; 

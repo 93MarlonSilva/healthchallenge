@@ -9,9 +9,8 @@ import { useParams } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { CountryProvider } from '@/contexts/CountryContext';
-import ProductList from '@/components/ProductList';
-import { orthopedicProducts } from '@/data/orthopedicProducts';
 import Link from 'next/link';
+import { orthopedicProducts } from '@/data/orthopedicProducts';
 
 interface ProductDetails {
   code: string;
@@ -492,7 +491,7 @@ export default function ProductDetailPage() {
             onTouchEnd={handleTouchEnd}
           >
             <div className="flex gap-4">
-              {orthopedicProducts.map((product, index) => (
+              {orthopedicProducts.map((product) => (
                 <div key={product.id} className="flex-shrink-0 w-60">
                   <Link href={`/${i18n.language}/orthopedic/${product.code}`}>
                     <div className="relative w-full h-60 bg-gray-200 rounded-lg overflow-hidden group">

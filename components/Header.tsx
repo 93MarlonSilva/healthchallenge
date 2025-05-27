@@ -37,7 +37,7 @@ export default function Header() {
 
   return (
     <>
-      <header className={`w-full flex items-center justify-between lg:justify-around px-8 h-16 bg-background shadow-none relative z-20 transition-all duration-300 ${showSearchDesktop ? 'pb-8 min-h-[6rem]' : ''}`}>
+      <header className={`w-full flex items-center justify-between lg:justify-around px-8 h-16 bg-background shadow-none relative z-[9999] transition-all duration-300 ${showSearchDesktop ? 'pb-8 min-h-[6rem]' : ''}`}>
         <div className="h-10 w-auto flex items-center">
           <Link href="/" className="transition-transform duration-300 hover:scale-110">
             <Image
@@ -111,6 +111,7 @@ export default function Header() {
           </div>
         </div>
         {/* Menu Mobile */}
+        
         <button
           className="md:hidden flex items-center justify-center w-10 h-10 rounded focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -122,11 +123,12 @@ export default function Header() {
             <rect y="17" width="24" height="2" rx="1" fill="#4C4D4C" />
           </svg>
         </button>
+        
         {/* Sidebar Mobile */}
         {menuOpen && (
-          <div className="fixed inset-0 z-30 bg-black/40 md:hidden" onClick={() => setMenuOpen(false)}>
+          <div className="fixed inset-0 z-[9998] bg-black/40 md:hidden" onClick={() => setMenuOpen(false)}>
             <nav
-              className="absolute top-0 right-0 w-64 h-full bg-[var(--background)] shadow-lg flex flex-col p-6 gap-6 animate-slideIn"
+              className="fixed top-0 right-0 w-64 h-full bg-[var(--background)] shadow-lg flex flex-col p-6 gap-6 animate-slideIn z-[9999]"
               onClick={e => e.stopPropagation()}
             >
               <button
@@ -139,6 +141,17 @@ export default function Header() {
                   <line x1="18" y1="6" x2="6" y2="18" stroke="#4C4D4C" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               </button>
+              <Link href="/" className="transition-transform duration-300 hover:scale-110">
+                  <Image
+                    src="/assets/images/logo.png"
+                    alt="Logo"
+                    width={120}
+                    height={40}
+                    className="object-contain"
+                    priority
+                    sizes="120px"
+                  />
+                </Link>
               <Link href="/orthopedic" className="text-[var(--color-semidark)] text-lg font-medium hover:text-[var(--color-purple)] transition-colors" onClick={() => setMenuOpen(false)}>{t('products')}</Link>
               <Link href="#" className="text-[var(--color-semidark)] text-lg font-medium hover:text-[var(--color-purple)] transition-colors" onClick={() => setMenuOpen(false)}>{t('about')}</Link>
               <Link href="#" className="text-[var(--color-semidark)] text-lg font-medium hover:text-[var(--color-purple)] transition-colors" onClick={() => setMenuOpen(false)}>{t('contact')}</Link>
@@ -166,6 +179,7 @@ export default function Header() {
               <button className="bg-[var(--color-orange)] hover:bg-[#c95c00] text-white rounded-lg px-4 py-2 font-semibold text-base transition-colors mt-2">
                 {t('contactUs')}
               </button>
+              
               <div className="relative mt-2">
                 {isOpenMobile && (
                   <div className="fixed inset-0 z-40" onClick={() => setIsOpenMobile(false)} />

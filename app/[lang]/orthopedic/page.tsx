@@ -158,7 +158,7 @@ export default function OrthopedicPage() {
               className="object-contain mb-6 md:mb-10 mt-10 sm:mb-10 w-[280px] sm:w-[400px]"
             />
             {/* Description Text as List */}
-            <ul className="list-disc list-inside text-base sm:text-lg text-[var(--color-dark)] mb-6 sm:mb-8 text-justify max-w-[280px] sm:max-w-lg">
+            <ul className="list-disc list-inside text-sm sm:text-2xl text-[var(--color-dark)] mb-6 sm:mb-8 text-justify max-w-[280px] sm:max-w-lg">
               <li className="font-medium">{t('Products developed to assist in prevention and return of activities, in the treatment and recovery of patients with orthopedic injuries.')}</li>
             </ul>
           </div>
